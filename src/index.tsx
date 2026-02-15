@@ -1,5 +1,6 @@
 import { Hono } from 'hono'
 import { renderer } from './renderer'
+import { InviteLayout } from './InviteLayout';
 
 const app = new Hono()
 
@@ -56,18 +57,7 @@ app.get('/', (c) => {
 app.get('/invite/:token', (c) => {
   const { token } = c.req.param()
   return c.render(
-    <div class="container">
-      <h1>🎉 Recibiste una invitación!</h1>
-      <p>Has recibido una invitación para unirte a nuestra aplicación.</p>
-      <p>Descarga la aplicación para aceptar la invitación y vuelve a abrir este enlace para unirte a nosotros.</p>
-      <a href="#">
-        Descargar aplicación
-      </a>
-      <p>Acepta la invitación para ser parte de nuestra comunidad.</p>
-      <a href={`chowi://invite/${token}`}>
-        Aceptar invitación
-      </a>
-    </div>
+    <InviteLayout token={token} />
   )
 })
 
