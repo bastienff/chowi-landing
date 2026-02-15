@@ -54,6 +54,7 @@ app.get('/', (c) => {
 })
 
 app.get('/invite/:token', (c) => {
+  const { token } = c.req.param()
   return c.render(
     <div class="container">
       <h1>🎉 Recibiste una invitación!</h1>
@@ -61,6 +62,10 @@ app.get('/invite/:token', (c) => {
       <p>Descarga la aplicación para aceptar la invitación y vuelve a abrir este enlace para unirte a nosotros.</p>
       <a href="#">
         Descargar aplicación
+      </a>
+      <p>Acepta la invitación para ser parte de nuestra comunidad.</p>
+      <a href={`chowi://invite/${token}`}>
+        Aceptar invitación
       </a>
     </div>
   )
