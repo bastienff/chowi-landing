@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "chowi-landing",
+  "compatibility_date": "2025-08-03",
+  "main": "./src/index.tsx",
+  "routes": [
+    {
+      "pattern": "chowi.cl/*",
+      "zone_name": "chowi.cl"
+    },
+    {
+      "pattern": "chowi.cl",
+      "custom_domain": true
+    }
+  ]
+}
